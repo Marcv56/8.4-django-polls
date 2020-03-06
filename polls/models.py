@@ -3,7 +3,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
-
+# the question model shows the questions made by the admin and details to the question
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
@@ -18,7 +18,7 @@ class Question(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently?'
 
-
+# this will is tied to the answers available per question
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
